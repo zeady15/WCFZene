@@ -26,7 +26,7 @@ namespace WCFZene.Controllers
         {
             BuildConnection();
             SqlConnection.Open();
-            string sql = "DELETE FROM eloado WHERE Id = @id)";
+            string sql = "DELETE FROM eloado WHERE Id = @id";
             MySqlCommand cmd = new MySqlCommand(sql, SqlConnection);
             cmd.Parameters.AddWithValue("@id", id);
             int SorokSzama = cmd.ExecuteNonQuery();

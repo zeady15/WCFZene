@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WCFZene.Models;
+using WCFZene.Controllers;
 
 namespace WCFZene
 {
@@ -12,27 +14,24 @@ namespace WCFZene
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public string DeleteEloado(int id)
         {
-            return string.Format("You entered: {0}", value);
+            return new EloadoController().EloadoTorlese(id);
         }
 
-        //public string GetData(int value)
-        //{
-        //    return string.Format("You entered: {0}", value);
-        //}
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public List<Eloado> GetEloadok()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            return new EloadoController().EloadokListaja();
+        }
+
+        public string InsertEloado(Eloado eloado)
+        {
+            return new EloadoController().EloadoRogzitese(eloado);
+        }
+
+        public string UpdateEloado(Eloado eloado)
+        {
+            return new EloadoController().EloadoModositasa(eloado);
         }
     }
 }
