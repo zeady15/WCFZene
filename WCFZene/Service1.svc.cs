@@ -17,6 +17,11 @@ namespace WCFZene
             return string.Format("You entered: {0}", value);
         }
 
+        //public string GetData(int value)
+        //{
+        //    return string.Format("You entered: {0}", value);
+        //}
+
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
             if (composite == null)
